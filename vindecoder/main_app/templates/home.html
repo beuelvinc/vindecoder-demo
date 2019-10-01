@@ -1,0 +1,264 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<style>
+.small {
+    display: none ;
+}
+.cat_icon img {
+	border-radius:2%;
+}
+
+.data-part{
+position:relative;
+z-index:2;
+top:120px;
+}
+
+.data-vin{
+	font-size:18px;
+}
+
+
+@media only screen and (max-width: 1200px) and  (min-width: 995px){
+    .analiz-img {
+        display: inline-block;
+        margin-left: 50px !important;
+    }
+}
+@media only screen and (max-width: 993px) and (min-width:770px) {
+    .cat_icon img {
+        width:60%;
+		height:95%;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .large{
+		display:none;
+	}
+.small {
+	position:relative;
+	z-index:5;
+    display: block ;
+}
+.wrapper.card{
+	min-width:260px;
+	max-width:260px;
+}
+.card img, .card p{
+	padding-left:15px;
+	padding-top:15px;
+
+}
+ .card p{
+    font-family: 'Roboto', sans-serif;
+	font-size:18px;
+ }
+}
+@media only screen and (max-width: 590px) {
+   
+.vincode-text
+{
+	text-aligin:center;
+	font-size:27px !important;
+	position:relative;
+	left:3%;
+}
+.search_input{
+	min-width:300px;
+	margin-bottom:30px;
+}
+
+
+
+
+@media only screen and (max-width: 470px){
+   
+.small{
+	position:relative;
+	left:-50px;
+}
+}
+
+@media only screen and (min-width: 872px){
+   .data-vin{
+	   font-size:10px;
+	   text-align:left !important;
+   }
+.data-img{
+width:400px !important;
+}
+}
+
+
+
+@media only screen and (max-width: 306px){
+.wrapper.card{
+position:relative;
+left:-25px;
+}
+}
+
+
+
+
+
+
+</style>
+        <div class="container vincode_container">
+            <div class="row">
+                <div class="col-xl-8 offset-xl-2">
+                    <div class="home_content text-center">
+                        <div class="home_title"><h4 class='vincode-text' >Vinkodunuzla ödənişsiz axtarın </h4></div>
+					    <div class="search_form_container">
+                            <form class="search_form"action="{% url 'main_app:home' %}" id="search_form">
+							    <div class="d-flex flex-sm-row flex-column align-items-sm-start align-items-center justify-content-sm-between">
+                                    <input type="text" name='q' class="search_input" placeholder="Vinkodunuzu buraya yazın" required="required">
+								    <button type='submit' class="search_button">Search</button>
+							    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><br><br>
+ 
+
+        {% endblock content %}
+	
+        {% block category %}
+
+			{% if object %}
+				<div class="container data-part">
+								<div class="categories_container   row">
+										<div class="col-md-6">
+											{% if object.0.sekill %}
+												<img class='data-img' width=280 height=300 src="{{object.0.sekill.url}}" style='padding:20px;display:inline-block;'  alt="sd">
+											{% else %}
+											<p>No photo yet</p>
+											{% endif %}
+										</div>
+										
+									<div class="col-md-6 text-center datium">
+										<p class='text-center data-vin' style="margin-top:10px"> {{object.0.vin}}</p>
+										<p><span>Marka   :</span> {{object.0.make}} </p>
+										<p><span>Model   :</span> {{object.0.model}} </p>
+										<p><span>Rəngi   :</span> {{object.0.rengi}} </p>
+										<p><span>Vəziyyəti   :</span> {{object.0.veziyyeti}} </p>
+										<p><span>Yan zədə   :</span> {{object.0.yan_zede}} </p>
+										<p><span>Əsas zədə   :</span> {{object.0.esas_zede}} </p>
+
+									</div>
+								</div>
+						</div>
+
+
+			{% else %}
+
+        	<div class="categories">
+			<div class="container">
+				<div class="row">
+					<div class="col-6 offset-3 small" >
+						<div class="wrapper card">
+							<img src="{% static 'images/image1.jpg'%}" width=240 class="svg">
+							<p>Maşınınızı bizə etibar edin</p>
+						</div>
+					</div>
+					<div class="col-12 large">
+						<div class="categories_container d-flex flex-md-row">
+							<!-- Category -->
+                           
+							<div class="category text-center">
+								<p >
+									<div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
+										<div class="cat_icon"><img class='shadow p-3 mb-5 bg-white rounded' src="{% static 'images/image1.jpg'%}" class="svg"></div>
+										<div class="cat_title">Servis</div>
+									</div>
+								</p>
+							</div>
+
+							<!-- Category -->
+							<div class="category text-center">
+								<p>
+									<div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
+										<div class="cat_icon"><img class='shadow p-3 mb-5 bg-white rounded' src="{% static 'images/image2.png'%}" class="svg" ></div>
+										<div class="cat_title">Təmir</div>
+									</div>
+								</p>
+							</div>
+
+							<!-- Category -->
+							<div class="category text-center">
+								<p>
+									<div class="d-flex flex-md-column flex-row align-items-md-center align-items-md-start align-items-center justify-content-start">
+										<div class="cat_icon analiz-img"><img class='shadow p-3 mb-5 bg-white rounded' src="{% static 'images/image3.jpg'%}" class="svg" ></div>
+										<div class="cat_title" >Analiz</div>
+									</div>
+								</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+			{% endif %}
+	
+
+
+        {% endblock category %}
+
+
+{% block contact %}
+
+<br><br>
+<br>
+<br>
+<br><br>
+<br>
+<br>
+
+		<div class="container">
+			<div class="row ">
+				<div class="col-md-12 text-center ">
+					<h2 >Vinkodunuz haradadır?</h2><br>
+				</div>
+			</div>
+			<div class="row text-center ">
+		
+				<div class="col-md-12  text-center" >
+					<img src="{% static 'images/vin.gif' %}" width=250 alt="">
+				</div>
+			</div>
+		</div>
+
+
+<div class="container"  id='contact1'>
+	<div class="row ">
+		<div class="col-md-12 text-center ">
+		<br>
+		 <h2 >Bizimlə əlaqə</h2>
+		<br>		
+
+		</div>
+	</div>
+	<div class="row" >
+		<div class="col-6 offset-3 ">
+			<div >
+			<form  method='POST'>
+				{% csrf_token %}
+				{{form|crispy}}
+				<input type="submit" value='Göndər' class='btn btn-danger'>
+			</form>
+			</div>
+		</div>
+
+</div>	
+	</div>
+
+{% endblock contact %}
+
+
+	

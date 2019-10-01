@@ -1,0 +1,255 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: balck !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.vincode_container {
+    height: 250px;
+}
+
+nav {
+    width: 100%;
+    position: fixed !important;
+    z-index: 999999999999999999999999999999;
+    background: inherit;
+}
+
+.navbar-light .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+nav * {
+    color: white !important;
+}
+
+.custom-active {
+    width: 142px;
+    height: 40px;
+    border: solid 2px #ffb400;
+    border-radius: 5px;
+    margin-left: 41px;
+}
+
+.custom-active a {
+    color: #ffb400 !important;
+}
+
+.home_container {
+    background: url("/static/images/content-bg.jpg");
+    width: 100%;
+}
+
+.home_title {
+    display: inline-block;
+}
+
+.home_title h4 {
+    color: #FFFFFF;
+    font-size: 45px;
+    font-weight: 400;
+    line-height: 1.2;
+    position: relative;
+    right: 30px;
+}
+
+.search_form_container {
+    margin-top: 36px;
+}
+
+.search_form {
+    display: block;
+}
+
+.search_input {
+    display: block;
+    width: calc(100% - 214px);
+    height: 57px;
+    border: none;
+    text-align: center;
+    outline: none;
+    padding-left: 27px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 400;
+    color: #000000;
+}
+
+.search_input::-webkit-input-placeholder {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #b9b9b9 !important;
+}
+
+.search_input:-moz-placeholder {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #b9b9b9 !important;
+}
+
+.search_input::-moz-placeholder {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #b9b9b9 !important;
+}
+
+.search_input:-ms-input-placeholder {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #b9b9b9 !important;
+}
+
+.search_input::input-placeholder {
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    color: #b9b9b9 !important;
+}
+
+.search_button {
+    width: 196px;
+    height: 57px;
+    border: none;
+    outline: none;
+    background: #145221;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.categories {
+    z-index: 2;
+    position: relative;
+    top: 100px;
+}
+
+.categories_container {
+    border-radius: 5px;
+    box-shadow: 0px 32px 114px rgba(0, 0, 0, 0.35);
+    margin-top: -132px;
+    background: #FFFFFF;
+}
+
+.category {
+    width: 30%;
+}
+
+.category:not(:last-child)::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: -1px;
+    width: 2px;
+    height: 50%;
+    background: #e1ecf4;
+    content: '';
+}
+
+.category a {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 36px;
+    padding-bottom: 57px;
+}
+
+.gmap_canvas iframe {
+    width: 100%;
+}
+
+.cat_icon {
+    width: 300px;
+    height: 150px;
+}
+
+.cat_icon img {
+    max-height: 100%;
+}
+
+.cat_icon img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.cat_title {
+    font-size: 18px;
+    font-weight: 500;
+    color: #000000;
+    line-height: 0.75;
+    margin-top: 26px;
+    -webkit-transition: all 200ms ease;
+    -moz-transition: all 200ms ease;
+    -ms-transition: all 200ms ease;
+    -o-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+
+.category:hover .cat_title {
+    color: #ffb400;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Alegreya+Sans:300);
+body {
+    font-family: 'Alegreya Sans', sans-serif;
+}
+
+
+/* Sticky footer position and size
+-------------------------------------------------- */
+
+.footer {
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* Sticky footer style and color
+-------------------------------------------------- */
+
+footer {
+    padding-top: 30px;
+    background-color: #292c2f;
+    color: #bbb;
+}
+
+footer a {
+    color: #999;
+    text-decoration: none;
+}
+
+footer a:hover,
+footer a:focus {
+    color: #aaa;
+    text-decoration: none;
+    border-bottom: 1px dotted #999;
+}
+
+footer .form-control {
+    background-color: #1f2022;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.1);
+    border: none;
+    resize: none;
+    color: #d1d2d2;
+}
+
+
+/* responsive main text */
+
+.list-info {
+    display: inline-block;
+    margin-left: 50px !important;
+}
