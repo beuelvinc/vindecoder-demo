@@ -7,7 +7,7 @@ from django.views.generic import FormView
 from .forms import ContactForm
 from .models import Vincode
 from django.db.models import Q
-
+from .tasks import send_feedback_email_task
 class HomePage(FormMixin,ListView):
     model=Vincode
     template_name="home.html"
@@ -27,12 +27,14 @@ class HomePage(FormMixin,ListView):
         subject=self.request.POST.get("subject")
         message=self.request.POST.get("message")
         email=self.request.POST.get("email")
-        send_mail(
-            subject,
-            message,
-            email,
-            ['elvinc402@gmail.com'],
-        )
+        # send_mail(
+        #     subject,
+        #     message,
+        #     email,
+        #     ['elvinc402@gmail.com'],
+        # )
+        send_feedback_email_task.delay(subject,email,message)
+
         return redirect("main_app:home")
 
     def  get_context_data(self, **kwargs):
@@ -40,18 +42,17 @@ class HomePage(FormMixin,ListView):
         return context
     
     def form_valid(self,form):
-        print(form)
-        print(self.request.POST)
 
-        subject=form.cleaned_data.get("subject")
-        message=form.cleaned_data.get("message")
-        email=form.cleaned_data.get("email")
-        send_mail(
-            subject,
-            message,
-            email,
-            ['elvinc402@gmail.com'],
-        )
+        subject=self.request.POST.get("subject")
+        message=self.request.POST.get("message")
+        email=self.request.POST.get("email")
+        # send_mail(
+        #     subject,
+        #     message,
+        #     email,
+        #     ['elvinc402@gmail.com'],
+        # )
+        send_feedback_email_task.delay(subject,email,message)
       
         return super().form_valid(form)
 

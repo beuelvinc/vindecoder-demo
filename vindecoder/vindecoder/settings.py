@@ -140,3 +140,14 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'elvinc402@gmail.com'
 EMAIL_HOST_PASSWORD = 'aze12345'
+
+
+
+
+BROKER_URL = 'amqp://[127.0.0.1]'
+CELERY_RESULT_BACKEND = 'amqp://[127.0.0.1]'
+# Celery Data Format
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kolkata'
